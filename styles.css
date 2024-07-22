@@ -1,3 +1,25 @@
+@media (max-width: 768px) {
+    .welcome-card {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #welcome-portfolio {
+        font-size: 10vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-card {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #welcome-portfolio {
+        font-size: 12vws;
+    }
+}
+
 body {
     margin: none;
     padding: none;
@@ -31,16 +53,14 @@ body {
 
 .sparkle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    opacity: 0;
-    animation: sparkle-animation 2s infinite;
+    width: 10px;
+    height: 30px;
+    animation: sparkle-animation 5s infinite;
 }
 
 @keyframes sparkle-animation {
     0%, 100% {
-        opacity: 0;
+        opacity: 0.2;
     }
     50% {
         opacity: .5;
@@ -48,74 +68,77 @@ body {
 }
 
 .welcome-card {
+    background-color: rgb(26, 25, 25);
     width: 30%;
     text-align: center;
     z-index: 2;
     position: relative;
+    border: 3px solid rgb(4,255,0);
+    transition: transform 0.5s ease-in; /*Add transition for smooth sliding*/
+}
+
+.welcome-card.active {
+    transform: translateX(-200px);  /*slide to the left by 200px on hover*/
+}
+
+.border {
+    border: 3px solid rgb(4,255,0);
+    margin: 20px;
 }
 
 #welcome-portfolio {
-    color: #FFFF00;
     font-size: 80px;
     text-decoration: none;
     text-transform: lowercase;
     transition: 0.5s;
     letter-spacing: 3px;
-    padding: 10px;  
+    margin: 5px;
+    padding: 3px;  
+}
+
+#click-here {
+    font-size: large;
+    text-decoration: underline;
 }
 
 .glow-text {
-    color: #DB2FF7;
+    color: rgb(3,255,255);
     text-shadow:
-        1px 1px 5px rgba(255, 102, 255, 0.5),
-        1px 1px 10px rgba(255, 102, 255, 0.4),
-        1px 1px 15px rgba(255, 102, 255, 0.3),
-        1px 1px 20px rgba(255, 102, 255, 0.2);
+        1px 1px 5px rgb(0,192,254, 0.5),
+        1px 1px 10px rgb(0,192,254, 0.4),
+        1px 1px 15px rgb(0,192,254, 0.3),
+        1px 1px 20px rgb(0,192,254, 0.2);
     transition-duration: 0.25s;
 }
 
 .glow-text:hover {
-    color: #FFFF00;
+    color: rgb(232,255,1);
     text-shadow: 
-    3px 3px 10px rgba(255, 255, 0, 0.7),
-    3px 3px 20px rgba(255, 255, 0, 0.6),
-    3px 3px 30px rgba(255, 255, 0, 0.5),
-    3px 3px 40px rgba(255, 255, 0, 0.4);
+        3px 3px 10px rgba(255, 255, 0, 0.7),
+        3px 3px 20px rgba(255, 255, 0, 0.6),
+        3px 3px 30px rgba(255, 255, 0, 0.5),
+        3px 3px 40px rgba(255, 255, 0, 0.4);
 }
 
-#circle-team, #triangle-team, #rectangle-team, #square-team {
+.shapes {
     position: absolute;
-}
-
-#circle-team {
-    top: 0;
-    left: 50%;
-    transform: translate(-50%);
-    max-width: 200px;
-}
-
-#triangle-team {
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-    max-width: 200px;
-}
-
-#rectangle-team {
     top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    max-width: 200px;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1; /*Puts images behind card*/
 }
 
-#square-team {
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    max-width: 250px;
+.shapes img {
+    opacity: 0; /*Initially hides the image*/
+    transition: opacity 0.3s ease-in;   /*Smooth transition for opacity*/
+    margin: 3px;
 }
 
-.content {
-    text-align: center;
+.welcome-card:hover ~ .shapes img {
+    opacity: 1; /*Reveals images on card hover*/
+    transition-delay: 0.3s; /*Delay slightly to sync with card*/
+    
 }
-
