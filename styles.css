@@ -1,6 +1,6 @@
 body {
-    margin: 0;
-    padding: 0;
+    margin: none;
+    padding: none;
     font-family: "Ubuntu", sans-serif;
     box-sizing: border-box;
     height: 100vh;
@@ -48,11 +48,10 @@ body {
 }
 
 .welcome-card {
-    width: 50%;
+    width: 30%;
     text-align: center;
     z-index: 2;
     position: relative;
-    border-radius: 50%;
 }
 
 #welcome-portfolio {
@@ -62,6 +61,7 @@ body {
     text-transform: lowercase;
     transition: 0.5s;
     letter-spacing: 3px;
+    padding: 10px;  
 }
 
 .glow-text {
@@ -82,3 +82,40 @@ body {
     3px 3px 30px rgba(255, 255, 0, 0.5),
     3px 3px 40px rgba(255, 255, 0, 0.4);
 }
+
+#circle-team, #triangle-team, #rectangle-team, #square-team {
+    position: absolute;
+}
+
+#circle-team {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 200px;
+}
+
+#triangle-team {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 200px;
+}
+
+#rectangle-team {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    max-width: 200px;
+}
+
+#square-team {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    max-width: 250px;
+}
+
+.content {
+    text-align: center;
+}
+
