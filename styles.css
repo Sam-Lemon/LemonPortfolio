@@ -1,11 +1,11 @@
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .welcome-card {
         width: 90%;
         padding: 15px;
     }
 
     #welcome-portfolio {
-        font-size: 10vw;
+        font-weight: 400;
     }
 }
 
@@ -16,9 +16,9 @@
     }
 
     #welcome-portfolio {
-        font-size: 12vws;
+        font-weight: 400;
     }
-}
+} */
 
 body {
     margin: none;
@@ -72,17 +72,25 @@ body {
     width: 30%;
     text-align: center;
     z-index: 2;
-    position: relative;
+    position: absolute;
     border: 3px solid rgb(4,255,0);
+    cursor: pointer;
     transition: transform 0.5s ease-in; /*Add transition for smooth sliding*/
 }
 
 .welcome-card.active {
-    transform: translateX(-200px);  /*slide to the left by 200px on hover*/
+    left: calc(50% - 300px);
+    transform: translateX(-50%);  /*slide to the left by 300px on hover*/
 }
 
-.border {
-    border: 3px solid rgb(4,255,0);
+.chasing-border {
+    border: 5px solid rgb(4,255,0);
+    box-shadow: 
+        1px 1px 5px rgb(105,242,0, 0.5),
+        1px 1px 10px rgb(105,242, 0.4),
+        1px 1px 15px rgb(105,242,0, 0.3),
+        1px 1px 20px rgb(105,242,0, 0.2),
+    ;
     margin: 20px;
 }
 
@@ -123,22 +131,90 @@ body {
 .shapes {
     position: absolute;
     top: 50%;
-    left: 60%;
+    left: calc(50% + 50px);
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
     z-index: 1; /*Puts images behind card*/
 }
 
-.shapes img {
-    opacity: 0; /*Initially hides the image*/
-    transition: opacity 0.3s ease-in;   /*Smooth transition for opacity*/
-    margin: 3px;
+.shapes.visible {
+    opacity: 1; /*Initially hides the image*/
+    left: calc(50% - 50px);
+    transform: translate(0, -50%);
 }
 
-.welcome-card:hover ~ .shapes img {
-    opacity: 1; /*Reveals images on card hover*/
-    transition-delay: 0.3s; /*Delay slightly to sync with card*/
-    
+.image-button {
+    display: inline-block;  /*Makes button fit the image*/
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: none;   /*Remove default button background*/
+}
+
+.image-button img {
+    display: block; /*Ensures no extra space around image*/
+}
+
+/*Add keyframes for the fade-in effect*/
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*Apply the fade-in effect to shapes*/
+.shapes .shape {
+    opacity: 1;
+    margin: 10px;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-duration: 1s;
+}
+
+/*Add specific delays to each shape*/
+.shapes .circle {
+    animation-delay: 0.75s;
+    /* border: 3px solid white; */
+}
+
+.shapes .square {
+    animation-delay: 1.25s;
+    /* border: 3px solid gray; */
+}
+
+.shapes .triangle {
+    animation-delay: 1.5s;
+    /* border: 3px solid red; */
+}
+
+
+
+
+#about-me {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 75%;
+    color: white;
+    transition: opacity 0.75s ease;
+}
+
+#about-me.visible {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    border: 3px solid hotpink;
+}
+
+#about-me:not(.visible) {
+    opacity: 0;
+    transform: translateX(-20px);
 }

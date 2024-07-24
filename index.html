@@ -15,42 +15,56 @@
   <body>
     <div class="sparkling-bg"></div>
 
-    <div id="welcome-card" class="welcome-card">
+    <section id="welcome-card" class="welcome-card">
       <div class="content">
-        <div class="border">
+        <div class="chasing-border">
           <p id="welcome-portfolio">
             <span class="glow-text">Welcome</span>
             <br />
-            <span class="glow-text">to</span>
-            <span class="glow-text">My</span>
+            <span class="glow-text">to My</span>
             <br />
             <span class="glow-text">Portfolio</span>
-            <span id="click-here" class="glow-text">Click Here</span>
+            <span id="click-here" class="glow-text">click here</span>
           </p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div id="shapes" class="shapes">
-      <img
-        class="circle"
-        src="./images/CircleTriSquig.png"
-        alt="Pink circle, purple triangle, two yellow squiggles"
-        width="200px"
-      />
-      <img
-        class="square"
-        src="./images/SquareCirSquig.png"
-        alt="Green square, yellow circle, two blue squiggles"
-        width="200px"
-      />
-      <img
-        class="triangle"
-        src="./images/TriangleSquCir.png"
-        alt="Yellow triangle, pink square, blue circle"
-        width="250px"
-      />
-    </div>
+    <section id="shapes" class="shapes">
+      <button class="image-button">
+        <img
+          class="circle shape"
+          id="toggle-about-me"
+          src="./images/CircleTriSquig.png"
+          alt="Toggle About Me"
+          width="200px"
+          onclick="viewAboutMe()"
+        />
+      </button>
+      <button class="image-button">
+        <img
+          class="square shape"
+          id="toggle-projects"
+          src="./images/SquareCirSquig.png"
+          alt="Green square, yellow circle, two blue squiggles"
+          width="200px"
+        />
+      </button>
+      <button class="image-button">
+        <img
+          class="triangle shape"
+          id="toggle-contact"
+          src="./images/TriangleSquCir.png"
+          alt="Yellow triangle, pink square, blue circle"
+          width="250px"
+        />
+      </button>
+    </section>
+
+    <section id="about-me">
+      <h2>About Me</h2>
+      <p>LoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsum</p>
+    </section>
 
     <script src="index.js"></script>
   </body>

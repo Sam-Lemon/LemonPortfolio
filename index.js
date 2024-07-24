@@ -1,46 +1,85 @@
 //BACKGROUND SPARKLES EFFECT//
-const colors = ['#FF0000', '#FFFF00', '#00FF00', '#00E6E6', '#2B00FF', '#FF66FF'];
-const rotationAngles = [0, 45, 90, 135];
+const colors = [
+  "#FF0000",
+  "#FFFF00",
+  "#00FF00",
+  "#00E6E6",
+  "#2B00FF",
+  "#FF66FF",
+]; //array of colors for the background sprinkles
+const rotationAngles = [0, 45, 90, 135]; //array of angles for the background sprinkles
 
 function getRandomColor() {
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    return colors[randomIndex];
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
 }
 
-function getRandomRotation () {
-    const randomIndex = Math.floor(Math.random() * rotationAngles.length);
-    return rotationAngles[randomIndex];
+function getRandomRotation() {
+  const randomIndex = Math.floor(Math.random() * rotationAngles.length);
+  return rotationAngles[randomIndex];
 }
 
-function createSparkle () {
-    const sparkle = document.createElement('div');
-    sparkle.classList.add('sparkle');
-    sparkle.style.top = `${Math.random() * 100}vh`;
-    sparkle.style.left = `${Math.random() * 100}vw`;
-    sparkle.style.backgroundColor = getRandomColor();
-    sparkle.style.animationDuration = `${Math.random() * 3 + 1}s`;
-    sparkle.style.transform =  `rotate(${getRandomRotation()}deg)`;
-    document.querySelector('.sparkling-bg').appendChild(sparkle);
+function createSparkle() {
+  const sparkle = document.createElement("div");
+  sparkle.classList.add("sparkle");
+  sparkle.style.top = `${Math.random() * 100}vh`;
+  sparkle.style.left = `${Math.random() * 100}vw`;
+  sparkle.style.backgroundColor = getRandomColor();
+  sparkle.style.animationDuration = `${Math.random() * 3 + 1}s`;
+  sparkle.style.transform = `rotate(${getRandomRotation()}deg)`;
+  document.querySelector(".sparkling-bg").appendChild(sparkle);
 
-    setTimeout(() => {
-        sparkle.remove();
-    }, 3000)    //Adjust this to match the animation duration
+  setTimeout(() => {
+    sparkle.remove();
+  }, 3000); //Adjust this to match the animation duration
 }
 
-setInterval(createSparkle, 50);    //Adjust the interval to control the number of sparkles
+setInterval(createSparkle, 50); //Adjust the interval to control the number of sparkles
 
+//Toggle 'active' class for Welcome Card//
+const welcomeCard = document.getElementById("welcome-card");
+const shapes = document.getElementById("shapes");
+const clickHere = document.getElementById("click-here");
 
-//Toggle 'active' class
-const welcomeCard = document.getElementById('welcome-card');
-const shapes = document.getElementById('shapes');
-
-welcomeCard.addEventListener('mouseover', () => {
-    welcomeCard.classList.add('active');
-    shapes.classList.add('visible');    //Makes shapes visible
+clickHere.addEventListener("click", () => {
+  welcomeCard.classList.toggle("active");
+  if (welcomeCard.classList.contains("active")) {
+    shapes.classList.add("visible");
+    aboutMe.classList.remove('visible');
+    aboutMe.style.display = 'none';
+  } else {
+    shapes.classList.remove("visible");
+    aboutMe.classList.remove('visible');
+    aboutMe.style.display = 'none'
+  }
 });
 
-welcomeCard.addEventListener('transitionend', () => {
-    if (welcomeCard.classList.contains('active')) {
-        shapes.classList.add('visible');    //Makes sure shapes stay visible
+// Toggle 'active' class for Shapes//
+const aboutMe = document.getElementById('about-me');
+
+function viewAboutMe() {
+    const toggleAboutMe = document.getElementById('toggle-about-me');
+
+    //Ensure element exists
+    if (!toggleAboutMe) {
+        console.error('Element #toggle-about-me not found');
+        return;
     }
-});
+
+    toggleAboutMe.addEventListener('click', () => {
+        console.log('toggle-about-me is working');
+
+        if (shapes.classList.contains('visible')) {
+            //Toggle visibility of aboutMe
+            if (aboutMe.classList.contains('visible')) {
+                aboutMe.classList.remove('visible');
+                aboutMe.style.display = 'none';
+            } else {
+                aboutMe.classList.add('visible');
+                aboutMe.style.display = 'block'
+            }
+        }
+    })
+    
+}
+viewAboutMe();
