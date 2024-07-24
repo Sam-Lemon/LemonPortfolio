@@ -1,25 +1,11 @@
-/* @media (max-width: 768px) {
-    .welcome-card {
-        width: 90%;
-        padding: 15px;
-    }
+/***Fonts***/
+.ubuntu-bold-italic {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
 
-    #welcome-portfolio {
-        font-weight: 400;
-    }
-}
-
-@media (max-width: 480px) {
-    .welcome-card {
-        width: 100%;
-        padding: 10px;
-    }
-
-    #welcome-portfolio {
-        font-weight: 400;
-    }
-} */
-
+/***General Styles***/
 body {
     margin: none;
     padding: none;
@@ -33,13 +19,8 @@ body {
     background-color: black;
 }
 
-.ubuntu-bold-italic {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-  }
 
-
+/***Background Sparkle Effect***/
 .sparkling-bg {
     position: absolute;
     top: 0;
@@ -67,6 +48,7 @@ body {
     }
 }
 
+/***Welcome Card***/
 .welcome-card {
     background-color: rgb(26, 25, 25);
     width: 30%;
@@ -81,17 +63,6 @@ body {
 .welcome-card.active {
     left: calc(50% - 300px);
     transform: translateX(-50%);  /*slide to the left by 300px on hover*/
-}
-
-.chasing-border {
-    border: 5px solid rgb(4,255,0);
-    box-shadow: 
-        1px 1px 5px rgb(105,242,0, 0.5),
-        1px 1px 10px rgb(105,242, 0.4),
-        1px 1px 15px rgb(105,242,0, 0.3),
-        1px 1px 20px rgb(105,242,0, 0.2),
-    ;
-    margin: 20px;
 }
 
 #welcome-portfolio {
@@ -128,6 +99,7 @@ body {
         3px 3px 40px rgba(255, 255, 0, 0.4);
 }
 
+/***Shapes***/
 .shapes {
     position: absolute;
     top: 50%;
@@ -159,7 +131,7 @@ body {
     display: block; /*Ensures no extra space around image*/
 }
 
-/*Add keyframes for the fade-in effect*/
+/***Shape Animation***/
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -171,17 +143,15 @@ body {
     }
 }
 
-/*Apply the fade-in effect to shapes*/
 .shapes .shape {
     opacity: 1;
     margin: 10px;
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.5s ease-out forwards;   /*Apply the fade-in effect to shapes*/
     animation-duration: 1s;
 }
 
-/*Add specific delays to each shape*/
 .shapes .circle {
-    animation-delay: 0.75s;
+    animation-delay: 0.75s; /*Add specific delays to each shape*/
     /* border: 3px solid white; */
 }
 
@@ -197,7 +167,7 @@ body {
 
 
 
-
+/***About Me***/
 #about-me {
     display: none;
     position: absolute;
