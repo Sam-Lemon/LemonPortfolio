@@ -1,0 +1,38 @@
+/*SQUARE*/
+#square {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+/*CIRCLE*/
+#circle {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+/*TRIANGLE*/
+#triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+}
+
+/*CROSS*/
+#cross {
+background-color: red;
+    height: 100px;
+    position: relative;
+    width: 20px;
+}
+#cross::after {
+    background-color: red;
+    content: "";
+    height: 20px;
+    width: 100px;
+    position: absolute;
+}
