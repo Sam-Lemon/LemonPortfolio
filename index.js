@@ -6,8 +6,8 @@ const colors = [
   "#00E6E6",
   "#2B00FF",
   "#FF66FF",
-]; //array of colors for the background sprinkles
-const rotationAngles = [0, 45, 90, 135]; //array of angles for the background sprinkles
+];
+const rotationAngles = [0, 45, 90, 135];
 
 function getRandomColor() {
   const randomIndex = Math.floor(Math.random() * colors.length);
@@ -45,41 +45,57 @@ clickHere.addEventListener("click", () => {
   welcomeCard.classList.toggle("active");
   if (welcomeCard.classList.contains("active")) {
     shapes.classList.add("visible");
-    aboutMe.classList.remove('visible');
-    aboutMe.style.display = 'none';
+    aboutMe.classList.remove("visible");
+    aboutMe.style.display = "none";
   } else {
     shapes.classList.remove("visible");
-    aboutMe.classList.remove('visible');
-    aboutMe.style.display = 'none'
+    aboutMe.classList.remove("visible");
+    aboutMe.style.display = "none";
   }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleAboutMe = document.getElementById('toggle-about-me');
+  const aboutMeSection = document.getElementById('about-me');
+
+  toggleAboutMe.addEventListener('click', () => {
+    aboutMeSection.classList.toggle('visible');
+  });
+});
+
+
+
+
+
+
+
+
+
+
 // Toggle 'active' class for Shapes//
-const aboutMe = document.getElementById('about-me');
+// const aboutMe = document.getElementById("about-me");
 
-function viewAboutMe() {
-    const toggleAboutMe = document.getElementById('toggle-about-me');
+// function viewAboutMe() {
+//   const toggleAboutMe = document.getElementById("toggle-about-me");
+//   cont aboutMeSection = document.getElementById('about-me');
 
-    //Ensure element exists
-    if (!toggleAboutMe) {
-        console.error('Element #toggle-about-me not found');
-        return;
-    }
+//   //Ensure element exists
+//   if (!toggleAboutMe) {
+//     console.error("Element #toggle-about-me not found");
+//     return;
+//   }
 
-    toggleAboutMe.addEventListener('click', () => {
-        console.log('toggle-about-me is working');
+//   toggleAboutMe.addEventListener("click", () => {
+//     console.log("toggle-about-me is working");
 
-        if (shapes.classList.contains('visible')) {
-            //Toggle visibility of aboutMe
-            if (aboutMe.classList.contains('visible')) {
-                aboutMe.classList.remove('visible');
-                aboutMe.style.display = 'none';
-            } else {
-                aboutMe.classList.add('visible');
-                aboutMe.style.display = 'block'
-            }
-        }
-    })
-    
-}
-viewAboutMe();
+//     if (shapes.classList.contains("visible")) {
+//       //Toggle visibility of aboutMe
+//       if (aboutMe.style.display === "block" || aboutMe.style.display === "") {
+//         aboutMe.style.display = "none";
+//       } else {
+//         aboutMe.style.display = "block";
+//       }
+//     }
+//   });
+// }
+// viewAboutMe();

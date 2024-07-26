@@ -62,7 +62,7 @@ body {
 
 .welcome-card.active {
     left: calc(50% - 300px);
-    transform: translateX(-50%);  /*slide to the left by 300px on hover*/
+    transform: translateX(-50%); 
 }
 
 #welcome-portfolio {
@@ -78,6 +78,8 @@ body {
 #click-here {
     font-size: large;
     text-decoration: underline;
+    white-space: nowrap;
+    display: inline;
 }
 
 .glow-text {
@@ -132,17 +134,6 @@ body {
 }
 
 /***Shape Animation***/
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .shapes .shape {
     opacity: 1;
     margin: 10px;
@@ -165,6 +156,16 @@ body {
     /* border: 3px solid red; */
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 
 /***About Me***/
