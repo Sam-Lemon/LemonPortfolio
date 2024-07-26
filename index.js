@@ -1,58 +1,72 @@
 //BACKGROUND SPARKLES EFFECT//
 const colors = [
-  "#FF0000",
-  "#FFFF00",
-  "#00FF00",
-  "#00E6E6",
-  "#2B00FF",
-  "#FF66FF",
+  "#FF0000",  // red 
+  "#FFFF00",  // yellow
+  "#00FF00",  // green
+  "#00E6E6",  // light blue
+  "#2B00FF",  // dark blue
+  "#FF66FF",  // purple
 ];
 const rotationAngles = [0, 45, 90, 135];
 
+
 function getRandomColor() {
+    // Creates a randomIndex number variable. 
+    // Math.floor ensures the result is a whole number within the bound of array indices. 
+    // Math.random picks a random number between 0 and 1. Then multiplies it by the length of the colors array. 
+    // It rounds down to the whole number, and that is the randomIndex.
+    // Then returns the color from the array associated with the randomIndex.
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
 }
 
 function getRandomRotation() {
+    // Performs same action as getRandomColor, but with different rotational angles.
   const randomIndex = Math.floor(Math.random() * rotationAngles.length);
   return rotationAngles[randomIndex];
 }
 
 function createSparkle() {
-  const sparkle = document.createElement("div");
-  sparkle.classList.add("sparkle");
-  sparkle.style.top = `${Math.random() * 100}vh`;
-  sparkle.style.left = `${Math.random() * 100}vw`;
-  sparkle.style.backgroundColor = getRandomColor();
-  sparkle.style.animationDuration = `${Math.random() * 3 + 1}s`;
-  sparkle.style.transform = `rotate(${getRandomRotation()}deg)`;
-  document.querySelector(".sparkling-bg").appendChild(sparkle);
+  const sparkle = document.createElement("div");  // creating new div for the sparkles
+  sparkle.classList.add("sparkle"); // adding a the class of sparkle to the div
+  sparkle.style.top = `${Math.random() * 100}vh`; // randomizing the distance from the top the sparkle will be placed
+  sparkle.style.left = `${Math.random() * 100}vw`;  // randomizing the distance from the left the sparkle will be placed
+  sparkle.style.backgroundColor = getRandomColor(); // calling the getRandomColor function to specify each sparkle's color
+  sparkle.style.animationDuration = `${Math.random() * 3 + 1}s`;  // randomizing the length of time the sparkle is visible, between 1 and 4 seconds
+  sparkle.style.transform = `rotate(${getRandomRotation()}deg)`;  // calling the getRandomRotation function to specify each sparkle's rotation
+  document.querySelector(".sparkling-bg").appendChild(sparkle); // adding the sparkle child div to the parent div
 
   setTimeout(() => {
+    // Removes the sparkle element from the DOM based on the same random duration used for the animation
     sparkle.remove();
-  }, 3000); //Adjust this to match the animation duration
+  }, animationDuration * 1000); // covert to milliseconds
 }
 
-setInterval(createSparkle, 50); //Adjust the interval to control the number of sparkles
+setInterval(createSparkle, 50); // Adjust the interval to control the number of sparkles
 
-//Toggle 'active' class for Welcome Card//
-const welcomeCard = document.getElementById("welcome-card");
+//WELCOME CARD - toggle 'active'//
+const welcomeCard = document.getElementById("welcome-card");  // Referencing the element with the ID "welcome-card"
 const shapes = document.getElementById("shapes");
 const clickHere = document.getElementById("click-here");
 
-clickHere.addEventListener("click", () => {
-  welcomeCard.classList.toggle("active");
-  if (welcomeCard.classList.contains("active")) {
+clickHere.addEventListener("click", () => { // Event listener added to the clickHere variable/element
+  welcomeCard.classList.toggle("active"); // Toggles the 'active' class on the 'welcomeCard' element
+  if (welcomeCard.classList.contains("active")) { // If active, the shapes will be visible, About Me will be hidden
     shapes.classList.add("visible");
     aboutMe.classList.remove("visible");
-    aboutMe.style.display = "none";
-  } else {
+    aboutMe.style.display = "none"; // Ensures aboutMe hidden
+  } else {  // If not active, shapes and aboutMe hidden
     shapes.classList.remove("visible");
     aboutMe.classList.remove("visible");
     aboutMe.style.display = "none";
   }
 });
+
+
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const toggleAboutMe = document.getElementById('toggle-about-me');
