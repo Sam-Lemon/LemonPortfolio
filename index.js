@@ -37,9 +37,9 @@ function createSparkle() {
   document.querySelector(".sparkling-bg").appendChild(sparkle); // adding the sparkle child div to the parent div
 
   setTimeout(() => {
-    // Removes the sparkle element from the DOM based on the same random duration used for the animation
+    // Removes the sparkle element from the DOM 
     sparkle.remove();
-  }, animationDuration * 1000); // covert to milliseconds
+  }, 5000); 
 }
 
 setInterval(createSparkle, 50); // Adjust the interval to control the number of sparkles
@@ -48,24 +48,37 @@ setInterval(createSparkle, 50); // Adjust the interval to control the number of 
 const welcomeCard = document.getElementById("welcome-card");  // Referencing the element with the ID "welcome-card"
 const shapes = document.getElementById("shapes");
 const clickHere = document.getElementById("click-here");
+const aboutMe = document.getElementById("about-met");
+const mainContainer = document.getElementById("main-container");
 
 clickHere.addEventListener("click", () => { // Event listener added to the clickHere variable/element
   welcomeCard.classList.toggle("active"); // Toggles the 'active' class on the 'welcomeCard' element
   if (welcomeCard.classList.contains("active")) { // If active, the shapes will be visible, About Me will be hidden
+    mainContainer.classList.remove("column");
+    mainContainer.classList.add("row");
     shapes.classList.add("visible");
-    aboutMe.classList.remove("visible");
-    aboutMe.style.display = "none"; // Ensures aboutMe hidden
+    // shapes.classList.add("visible");
+    // aboutMe.classList.remove("visible");
+    // aboutMe.style.display = "none"; // Ensures aboutMe hidden
   } else {  // If not active, shapes and aboutMe hidden
+    mainContainer.classList.remove("row");
+    mainContainer.classList.add("column");
     shapes.classList.remove("visible");
     aboutMe.classList.remove("visible");
-    aboutMe.style.display = "none";
+    // shapes.classList.remove("visible");
+    // aboutMe.classList.remove("visible");
+    // aboutMe.style.display = "none";
   }
 });
 
-
-
-
-
+document.getElementById("toggle-about-me").addEventListener("click", () => {
+  aboutMe.classList.toggle("visible");
+  if (aboutMe.classList.contains("visible")) {
+    shapes.classList.add("visible");
+  } else {
+    shapes.classList.remove("visible");
+  }
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {

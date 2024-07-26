@@ -48,22 +48,41 @@ body {
     }
 }
 
+
+/***Container***/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.container.column {
+    flex-direction: column;
+}
+
+.container.row {
+    flex-direction: row;
+}
+
+
 /***Welcome Card***/
 .welcome-card {
     background-color: rgb(26, 25, 25);
     width: 30%;
     text-align: center;
     z-index: 2;
-    position: absolute;
+    /* position: absolute; */
     border: 3px solid rgb(4,255,0);
     cursor: pointer;
     transition: transform 0.5s ease-in; /*Add transition for smooth sliding*/
 }
 
-.welcome-card.active {
+/* .welcome-card.active {
     left: calc(50% - 300px);
     transform: translateX(-50%); 
-}
+} */
 
 #welcome-portfolio {
     font-size: 80px;
@@ -103,22 +122,23 @@ body {
 
 /***Shapes***/
 .shapes {
-    position: absolute;
-    top: 50%;
-    left: calc(50% + 50px);
-    transform: translate(-50%, -50%);
-    display: flex;
+    /* position: absolute; */
+    display: none;
     flex-direction: column;
     align-items: center;
-    opacity: 0;
     transition: opacity 1s ease, transform 1s ease;
     z-index: 1; /*Puts images behind card*/
+    /* top: 50%;
+    left: calc(50% + 50px);
+    transform: translate(-50%, -50%); */
+    /* opacity: 0; */
 }
 
 .shapes.visible {
+    display: flex;
     opacity: 1; /*Initially hides the image*/
-    left: calc(50% - 50px);
-    transform: translate(0, -50%);
+    /* left: calc(50% - 50px);
+    transform: translate(0, -50%); */
 }
 
 .image-button {
@@ -171,9 +191,8 @@ body {
 /***About Me***/
 #about-me {
     display: none;
-    position: absolute;
-    top: 0;
-    left: 75%;
+    /* position: absolute;
+    top: 0; */
     color: white;
     transition: opacity 0.75s ease;
 }
@@ -185,7 +204,7 @@ body {
     border: 3px solid hotpink;
 }
 
-#about-me:not(.visible) {
+/* #about-me:not(.visible) {
     opacity: 0;
     transform: translateX(-20px);
-}
+} */
