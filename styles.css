@@ -16,7 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: black;
+    background-color: #090909;
 }
 
 
@@ -53,36 +53,57 @@ body {
 .container {
     display: flex;
     justify-content: center;
+    flex-direction: row;
     align-items: center;
     width: 100%;
     height: 100%;
 }
 
-.container.column {
-    flex-direction: column;
-}
-
-.container.row {
-    flex-direction: row;
-}
-
-
 /***Welcome Card***/
 .welcome-card {
-    background-color: rgb(26, 25, 25);
+    background-color: #1a1919;
     width: 30%;
+    padding: 1rem;
     text-align: center;
     z-index: 2;
-    /* position: absolute; */
-    border: 3px solid rgb(4,255,0);
+    border: 3px solid #04ff00;
     cursor: pointer;
-    transition: transform 0.5s ease-in; /*Add transition for smooth sliding*/
+    user-select: none;
+    transition: transform 1s ease-in; /*Add transition for smooth sliding*/
 }
 
-/* .welcome-card.active {
-    left: calc(50% - 300px);
+.welcome-card.active {
+    left: calc(50% - 100px);
     transform: translateX(-50%); 
-} */
+}
+
+@media (max-width: 768px) {
+    .welcome-card {
+        width: 80%;
+    }
+
+    #welcome-portfolio {
+        font-size: 60px;
+    }
+
+    #click-here {
+        font-size: medium;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-card {
+        width: 95%;
+    }
+
+    #welcome-portfolio {
+        font-size: 40px;
+    }
+
+    #click-here {
+        font-size: small;
+    }
+}
 
 #welcome-portfolio {
     font-size: 80px;
@@ -102,45 +123,25 @@ body {
 }
 
 .glow-text {
-    color: rgb(3,255,255);
+    color: #03ffff;
     text-shadow:
-        1px 1px 5px rgb(0,192,254, 0.5),
-        1px 1px 10px rgb(0,192,254, 0.4),
-        1px 1px 15px rgb(0,192,254, 0.3),
-        1px 1px 20px rgb(0,192,254, 0.2);
+        1px 1px 5px #00c0fe80,
+        1px 1px 10px #00c0fe66,
+        1px 1px 15px #00c0fe4d,
+        1px 1px 20px #00c0fe33;
     transition-duration: 0.25s;
 }
 
 .glow-text:hover {
-    color: rgb(232,255,1);
+    color: #e8ff01;
     text-shadow: 
-        3px 3px 10px rgba(255, 255, 0, 0.7),
-        3px 3px 20px rgba(255, 255, 0, 0.6),
-        3px 3px 30px rgba(255, 255, 0, 0.5),
-        3px 3px 40px rgba(255, 255, 0, 0.4);
+        3px 3px 10px #ffff00b3,
+        3px 3px 20px #ffff0099,
+        3px 3px 30px #ffff0080,
+        3px 3px 40px #ffff0066;
 }
 
 /***Shapes***/
-.shapes {
-    /* position: absolute; */
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    transition: opacity 1s ease, transform 1s ease;
-    z-index: 1; /*Puts images behind card*/
-    /* top: 50%;
-    left: calc(50% + 50px);
-    transform: translate(-50%, -50%); */
-    /* opacity: 0; */
-}
-
-.shapes.visible {
-    display: flex;
-    opacity: 1; /*Initially hides the image*/
-    /* left: calc(50% - 50px);
-    transform: translate(0, -50%); */
-}
-
 .image-button {
     display: inline-block;  /*Makes button fit the image*/
     border: none;
@@ -154,47 +155,33 @@ body {
 }
 
 /***Shape Animation***/
-.shapes .shape {
-    opacity: 1;
-    margin: 10px;
-    animation: fadeIn 0.5s ease-out forwards;   /*Apply the fade-in effect to shapes*/
-    animation-duration: 1s;
+.shapes {
+    /* position: absolute; */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 1; /*Puts images behind card*/
 }
 
-.shapes .circle {
-    animation-delay: 0.75s; /*Add specific delays to each shape*/
-    /* border: 3px solid white; */
+.shapes.hidden {
+    display: none;
 }
 
-.shapes .square {
-    animation-delay: 1.25s;
-    /* border: 3px solid gray; */
+.shapes.visible {
+    display: flex;
+    opacity: 1; /*Initially hides the image*/
 }
-
-.shapes .triangle {
-    animation-delay: 1.5s;
-    /* border: 3px solid red; */
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 
 /***About Me***/
 #about-me {
     display: none;
-    /* position: absolute;
-    top: 0; */
     color: white;
     transition: opacity 0.75s ease;
+}
+
+#about-me.hidden {
+    display: none;
 }
 
 #about-me.visible {
@@ -202,9 +189,23 @@ body {
     opacity: 1;
     transform: translateX(0);
     border: 3px solid hotpink;
+    max-width: 25%;
 }
 
-/* #about-me:not(.visible) {
+/***Projects Link***/
+#projects-list {
+    display: none;
     opacity: 0;
-    transform: translateX(-20px);
-} */
+    transition: opacity 0.75s ease;
+}
+
+#projects.list.visible {
+    display: block;
+    opacity: 1;
+}
+
+
+
+
+
+

@@ -1,93 +1,126 @@
 //BACKGROUND SPARKLES EFFECT//
 const colors = [
-  "#FF0000",  // red 
-  "#FFFF00",  // yellow
-  "#00FF00",  // green
-  "#00E6E6",  // light blue
-  "#2B00FF",  // dark blue
-  "#FF66FF",  // purple
+  "#FF0000", // red
+  "#FFFF00", // yellow
+  "#00FF00", // green
+  "#00E6E6", // light blue
+  "#2B00FF", // dark blue
+  "#FF66FF", // purple
 ];
 const rotationAngles = [0, 45, 90, 135];
 
-
 function getRandomColor() {
-    // Creates a randomIndex number variable. 
-    // Math.floor ensures the result is a whole number within the bound of array indices. 
-    // Math.random picks a random number between 0 and 1. Then multiplies it by the length of the colors array. 
-    // It rounds down to the whole number, and that is the randomIndex.
-    // Then returns the color from the array associated with the randomIndex.
+  // Creates a randomIndex number variable.
+  // Math.floor ensures the result is a whole number within the bound of array indices.
+  // Math.random picks a random number between 0 and 1. Then multiplies it by the length of the colors array.
+  // It rounds down to the whole number, and that is the randomIndex.
+  // Then returns the color from the array associated with the randomIndex.
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
 }
 
 function getRandomRotation() {
-    // Performs same action as getRandomColor, but with different rotational angles.
+  // Performs same action as getRandomColor, but with different rotational angles.
   const randomIndex = Math.floor(Math.random() * rotationAngles.length);
   return rotationAngles[randomIndex];
 }
 
 function createSparkle() {
-  const sparkle = document.createElement("div");  // creating new div for the sparkles
+  const sparkle = document.createElement("div"); // creating new div for the sparkles
   sparkle.classList.add("sparkle"); // adding a the class of sparkle to the div
   sparkle.style.top = `${Math.random() * 100}vh`; // randomizing the distance from the top the sparkle will be placed
-  sparkle.style.left = `${Math.random() * 100}vw`;  // randomizing the distance from the left the sparkle will be placed
+  sparkle.style.left = `${Math.random() * 100}vw`; // randomizing the distance from the left the sparkle will be placed
   sparkle.style.backgroundColor = getRandomColor(); // calling the getRandomColor function to specify each sparkle's color
-  sparkle.style.animationDuration = `${Math.random() * 3 + 1}s`;  // randomizing the length of time the sparkle is visible, between 1 and 4 seconds
-  sparkle.style.transform = `rotate(${getRandomRotation()}deg)`;  // calling the getRandomRotation function to specify each sparkle's rotation
+  sparkle.style.animationDuration = `${Math.random() * 3 + 1}s`; // randomizing the length of time the sparkle is visible, between 1 and 4 seconds
+  sparkle.style.transform = `rotate(${getRandomRotation()}deg)`; // calling the getRandomRotation function to specify each sparkle's rotation
   document.querySelector(".sparkling-bg").appendChild(sparkle); // adding the sparkle child div to the parent div
 
   setTimeout(() => {
-    // Removes the sparkle element from the DOM 
+    // Removes the sparkle element from the DOM
     sparkle.remove();
-  }, 5000); 
+  }, 5000);
 }
 
 setInterval(createSparkle, 50); // Adjust the interval to control the number of sparkles
 
-//WELCOME CARD - toggle 'active'//
-const welcomeCard = document.getElementById("welcome-card");  // Referencing the element with the ID "welcome-card"
-const shapes = document.getElementById("shapes");
-const clickHere = document.getElementById("click-here");
-const aboutMe = document.getElementById("about-met");
-const mainContainer = document.getElementById("main-container");
 
-clickHere.addEventListener("click", () => { // Event listener added to the clickHere variable/element
-  welcomeCard.classList.toggle("active"); // Toggles the 'active' class on the 'welcomeCard' element
-  if (welcomeCard.classList.contains("active")) { // If active, the shapes will be visible, About Me will be hidden
-    mainContainer.classList.remove("column");
-    mainContainer.classList.add("row");
-    shapes.classList.add("visible");
-    // shapes.classList.add("visible");
-    // aboutMe.classList.remove("visible");
-    // aboutMe.style.display = "none"; // Ensures aboutMe hidden
-  } else {  // If not active, shapes and aboutMe hidden
-    mainContainer.classList.remove("row");
-    mainContainer.classList.add("column");
-    shapes.classList.remove("visible");
-    aboutMe.classList.remove("visible");
-    // shapes.classList.remove("visible");
-    // aboutMe.classList.remove("visible");
-    // aboutMe.style.display = "none";
+
+//INTERACTIVITY FOR WELCOME CARD AND SHAPES//
+document.addEventListener("DOMContentLoaded", () => {
+  // console.log("DOM fully loaded and parsed");
+
+  const mainContainer = document.getElementById("main-container");
+  const welcomeCard = document.getElementById("welcome-card"); // Referencing the element with the ID "welcome-card"
+  const clickHere = document.getElementById("click-here");
+  const shapes = document.getElementById("shapes");
+  const aboutMe = document.getElementById("about-me");
+
+
+  // console.log(welcomeCard, shapes, clickHere, aboutMe, mainContainer);
+
+  if (!welcomeCard || !shapes || !clickHere || !aboutMe || !mainContainer) {
+    console.error("One or more required elements are missing.");
+    return;
   }
-});
 
-document.getElementById("toggle-about-me").addEventListener("click", () => {
-  aboutMe.classList.toggle("visible");
-  if (aboutMe.classList.contains("visible")) {
-    shapes.classList.add("visible");
-  } else {
-    shapes.classList.remove("visible");
-  }
-});
+  clickHere.addEventListener("click", () => {
+    console.log("Click Here button clicked");
 
+    welcomeCard.classList.toggle("active"); // Toggles the 'active' class on the 'welcomeCard' element
+    
+    if (welcomeCard.classList.contains("active")) {
+      console.log("welcomeCard is active");
 
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleAboutMe = document.getElementById('toggle-about-me');
-  const aboutMeSection = document.getElementById('about-me');
+      setTimeout(() => {
+        shapes.classList.remove("hidden");
+        shapes.classList.add("visible");
 
-  toggleAboutMe.addEventListener('click', () => {
-    aboutMeSection.classList.toggle('visible');
+        console.log("Shapes have arrived, 1.5 seconds")
+
+      }, 2000); //1.5 seconds delay
+    } else {
+      console.log("welcomeCard is inactive");
+
+      // If not active, shapes and aboutMe hidden
+      shapes.classList.remove("animate");
+      shapes.classList.add("visible");
+      aboutMe.classList.remove("visible");
+    }
   });
+
+  document.getElementById("toggle-about-me").addEventListener("click", () => {
+    console.log("Toggle About Me clicked!");
+    aboutMe.classList.toggle("visible");
+    if (aboutMe.classList.contains("visible")) {
+      console.log("aboutMe is visible");
+      shapes.classList.add("visible");
+    } else {
+      console.log("aboutMe is hidden");
+      shapes.classList.remove("visible");
+    }
+  });
+
+
+  const squareShape = document.getElementById("toggle-projects");
+  const projectList = document.getElementById("projects-list");
+
+  if (!squareShape || !projectList || !shapes) {
+    console.error("One or more required elements are missing");
+    return;
+  }
+
+  squareShape.addEventListener("click", () => {
+    console.log("Square shape clicked");
+    projectList.classList.toggle("visible");
+    if (projectList.classList.contains("visible")) {
+      console.log("Projects List is visible");
+      shapes.classList.add("visible");
+    } else {
+      console.log("Project List is hidden");
+      shapes.classList.remove("visible");
+    }
+  });
+  
 });
 
 
@@ -98,6 +131,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+//   document.getElementById("toggle-about-me").addEventListener("click", () => {
+//     aboutMe.classList.toggle("visible");
+//     if (aboutMe.classList.contains("visible")) {
+//       shapes.classList.add("visible");
+//     } else {
+//       shapes.classList.remove("visible");
+//     }
+//   });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const toggleAboutMe = document.getElementById("toggle-about-me");
+//   const aboutMeSection = document.getElementById("about-me");
+
+//   toggleAboutMe.addEventListener("click", () => {
+//     aboutMeSection.classList.toggle("visible");
+//   });
+// });
 
 // Toggle 'active' class for Shapes//
 // const aboutMe = document.getElementById("about-me");
