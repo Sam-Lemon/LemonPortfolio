@@ -145,8 +145,8 @@ body {
     opacity: 1; /*Initially hides the image*/
 }
 
-/***About Me***/
-#about-me {
+/***About Me & Project List***/
+#about-me, #project-list {
     display: none;
     color: white;
     letter-spacing: normal;
@@ -162,29 +162,17 @@ body {
     margin-top: .5rem;
 }
 
-#about-me.hidden {
+#about-me.hidden, #project-list.hidden {
     display: none;
 }
 
-#about-me.visible {
+#about-me.visible, #project-list.visible {
     display: block;
     opacity: 1;
     transform: translateX(0);
     border: 5px groove #ff69b4;
     max-width: 30%;
     padding: 20px;
-}
-
-/***Projects Link***/
-#projects-list {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.75s ease;
-}
-
-#projects.list.visible {
-    display: block;
-    opacity: 1;
 }
 
 

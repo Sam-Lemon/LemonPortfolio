@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //INTERACTIVITY FOR PROJECT LIST//
   const squareShape = document.getElementById("toggle-projects");
-  const projectList = document.getElementById("projects-list");
+  const projectList = document.getElementById("project-list");
 
   if (!squareShape || !projectList || !shapes) {
     console.error("One or more required elements are missing");
@@ -104,11 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Square shape clicked");
     projectList.classList.toggle("visible");
     if (projectList.classList.contains("visible")) {
-      console.log("Projects List is visible");
+      console.log("Project List is visible");
       shapes.classList.add("visible");
+      projectList.classList.add("visible");
     } else {
       console.log("Project List is hidden");
-      shapes.classList.remove("visible");
     }
   });
 });
