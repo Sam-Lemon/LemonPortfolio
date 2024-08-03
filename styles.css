@@ -5,6 +5,7 @@
     font-style: italic;
   }
 
+
 /***General Styles***/
 body {
     margin: none;
@@ -59,53 +60,24 @@ body {
     height: 100%;
 }
 
+
 /***Welcome Card***/
 .welcome-card {
     background-color: #1a1919;
-    width: 30%;
+    width: 30rem;
     padding: 1rem;
     text-align: center;
     z-index: 2;
     border: 3px solid #04ff00;
     cursor: pointer;
     user-select: none;
-    transition: transform 1s ease-in; /*Add transition for smooth sliding*/
 }
 
-.welcome-card.active {
-    left: calc(50% - 100px);
-    transform: translateX(-50%); 
+.welcome-card.visible {
+    margin-right: 2rem;
 }
 
-@media (max-width: 768px) {
-    .welcome-card {
-        width: 80%;
-    }
-
-    #welcome-portfolio {
-        font-size: 60px;
-    }
-
-    #click-here {
-        font-size: medium;
-    }
-}
-
-@media (max-width: 480px) {
-    .welcome-card {
-        width: 95%;
-    }
-
-    #welcome-portfolio {
-        font-size: 40px;
-    }
-
-    #click-here {
-        font-size: small;
-    }
-}
-
-#welcome-portfolio {
+.welcome-portfolio {
     font-size: 80px;
     text-decoration: none;
     text-transform: lowercase;
@@ -141,6 +113,7 @@ body {
         3px 3px 40px #ffff0066;
 }
 
+
 /***Shapes***/
 .image-button {
     display: inline-block;  /*Makes button fit the image*/
@@ -154,13 +127,12 @@ body {
     display: block; /*Ensures no extra space around image*/
 }
 
+
 /***Shape Animation***/
 .shapes {
-    /* position: absolute; */
     display: none;
     flex-direction: column;
     align-items: center;
-    transition: opacity 1s ease, transform 1s ease;
     z-index: 1; /*Puts images behind card*/
 }
 
@@ -177,7 +149,17 @@ body {
 #about-me {
     display: none;
     color: white;
+    letter-spacing: normal;
     transition: opacity 0.75s ease;
+    background-color: #1a1919;
+    user-select: none;
+    z-index: 1;
+    margin-left: 2rem;
+}
+
+#about-me h2 {
+    text-align: center;
+    margin-top: .5rem;
 }
 
 #about-me.hidden {
@@ -188,8 +170,9 @@ body {
     display: block;
     opacity: 1;
     transform: translateX(0);
-    border: 3px solid hotpink;
-    max-width: 25%;
+    border: 5px groove #ff69b4;
+    max-width: 30%;
+    padding: 20px;
 }
 
 /***Projects Link***/

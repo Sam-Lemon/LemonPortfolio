@@ -43,22 +43,17 @@ function createSparkle() {
 
 setInterval(createSparkle, 50); // Adjust the interval to control the number of sparkles
 
-
-
 //INTERACTIVITY FOR WELCOME CARD AND SHAPES//
 document.addEventListener("DOMContentLoaded", () => {
-  // console.log("DOM fully loaded and parsed");
+  console.log("DOM fully loaded and parsed");
 
-  const mainContainer = document.getElementById("main-container");
-  const welcomeCard = document.getElementById("welcome-card"); // Referencing the element with the ID "welcome-card"
+  const aboutMe = document.getElementById("about-me");
   const clickHere = document.getElementById("click-here");
   const shapes = document.getElementById("shapes");
-  const aboutMe = document.getElementById("about-me");
+  const welcomeCard = document.getElementById("welcome-card"); // Referencing the element with the ID "welcome-card"
+  
 
-
-  // console.log(welcomeCard, shapes, clickHere, aboutMe, mainContainer);
-
-  if (!welcomeCard || !shapes || !clickHere || !aboutMe || !mainContainer) {
+  if (!aboutMe || !clickHere || !shapes || !welcomeCard) {
     console.error("One or more required elements are missing.");
     return;
   }
@@ -66,28 +61,25 @@ document.addEventListener("DOMContentLoaded", () => {
   clickHere.addEventListener("click", () => {
     console.log("Click Here button clicked");
 
-    welcomeCard.classList.toggle("active"); // Toggles the 'active' class on the 'welcomeCard' element
-    
-    if (welcomeCard.classList.contains("active")) {
-      console.log("welcomeCard is active");
+    welcomeCard.classList.toggle("visible"); //welcomeCard Visible
+    if (welcomeCard.classList.contains("visible")) {
+      console.log("welcomeCard is visible");
 
       setTimeout(() => {
-        shapes.classList.remove("hidden");
+        shapes.classList.remove("hidden"); //Adds shapes
         shapes.classList.add("visible");
 
-        console.log("Shapes have arrived, 1.5 seconds")
-
-      }, 2000); //1.5 seconds delay
+        console.log("Shapes have arrived");
+      });
     } else {
       console.log("welcomeCard is inactive");
 
-      // If not active, shapes and aboutMe hidden
-      shapes.classList.remove("animate");
-      shapes.classList.add("visible");
+      shapes.classList.add("hidden");
       aboutMe.classList.remove("visible");
     }
   });
 
+  //INTERACTIVITY FOR ABOUT ME//
   document.getElementById("toggle-about-me").addEventListener("click", () => {
     console.log("Toggle About Me clicked!");
     aboutMe.classList.toggle("visible");
@@ -96,11 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
       shapes.classList.add("visible");
     } else {
       console.log("aboutMe is hidden");
-      shapes.classList.remove("visible");
     }
   });
 
-
+  //INTERACTIVITY FOR PROJECT LIST//
   const squareShape = document.getElementById("toggle-projects");
   const projectList = document.getElementById("projects-list");
 
@@ -120,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
       shapes.classList.remove("visible");
     }
   });
-  
 });
 
 
@@ -133,49 +123,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-//   document.getElementById("toggle-about-me").addEventListener("click", () => {
-//     aboutMe.classList.toggle("visible");
-//     if (aboutMe.classList.contains("visible")) {
-//       shapes.classList.add("visible");
-//     } else {
-//       shapes.classList.remove("visible");
-//     }
-//   });
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const toggleAboutMe = document.getElementById("toggle-about-me");
-//   const aboutMeSection = document.getElementById("about-me");
-
-//   toggleAboutMe.addEventListener("click", () => {
-//     aboutMeSection.classList.toggle("visible");
-//   });
-// });
-
-// Toggle 'active' class for Shapes//
-// const aboutMe = document.getElementById("about-me");
-
-// function viewAboutMe() {
-//   const toggleAboutMe = document.getElementById("toggle-about-me");
-//   cont aboutMeSection = document.getElementById('about-me');
-
-//   //Ensure element exists
-//   if (!toggleAboutMe) {
-//     console.error("Element #toggle-about-me not found");
-//     return;
-//   }
-
-//   toggleAboutMe.addEventListener("click", () => {
-//     console.log("toggle-about-me is working");
-
-//     if (shapes.classList.contains("visible")) {
-//       //Toggle visibility of aboutMe
-//       if (aboutMe.style.display === "block" || aboutMe.style.display === "") {
-//         aboutMe.style.display = "none";
-//       } else {
-//         aboutMe.style.display = "block";
-//       }
-//     }
-//   });
-// }
-// viewAboutMe();
