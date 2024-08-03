@@ -74,8 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       console.log("welcomeCard is inactive");
 
+      shapes.classList.remove("visible");
       shapes.classList.add("hidden");
       aboutMe.classList.remove("visible");
+      aboutMe.classList.add("hidden");
     }
   });
 
