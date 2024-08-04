@@ -43,15 +43,14 @@ function createSparkle() {
 
 setInterval(createSparkle, 50); // Adjust the interval to control the number of sparkles
 
-//INTERACTIVITY FOR WELCOME CARD AND SHAPES//
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
 
+  //INTERACTIVITY FOR WELCOME CARD AND SHAPES//
   const aboutMe = document.getElementById("about-me");
   const clickHere = document.getElementById("click-here");
   const shapes = document.getElementById("shapes");
   const welcomeCard = document.getElementById("welcome-card"); // Referencing the element with the ID "welcome-card"
-  
 
   if (!aboutMe || !clickHere || !shapes || !welcomeCard) {
     console.error("One or more required elements are missing.");
@@ -94,10 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //INTERACTIVITY FOR PROJECT LIST//
-  const squareShape = document.getElementById("toggle-projects");
   const projectList = document.getElementById("project-list");
+  const squareShape = document.getElementById("toggle-projects");
 
-  if (!squareShape || !projectList || !shapes) {
+  if (!projectList || !shapes || !squareShape) {
     console.error("One or more required elements are missing");
     return;
   }
@@ -113,15 +112,25 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Project List is hidden");
     }
   });
+
+  //INTERACTIVITY FOR CONTACT INFO//
+  const contactInfo = document.getElementById("contact-info");
+  const triangleShape = document.getElementById("toggle-contact");
+
+  if (!contactInfo || !triangleShape) {
+    console.error("One or more required elements are missing");
+    return;
+  }
+
+  triangleShape.addEventListener("click", () => {
+    console.log("Triangle shape clicked");
+    contactInfo.classList.toggle("visible");
+    if (contactInfo.classList.contains("visible")) {
+      console.log("Contact Info is visible");
+      shapes.classList.add("visible");
+      contactInfo.classList.add("visible");
+    } else {
+      console.log("Contact Info is hidden");
+    }
+  });
 });
-
-
-
-
-
-
-
-
-
-
-

@@ -146,7 +146,7 @@ body {
 }
 
 /***About Me & Project List***/
-#about-me, #project-list {
+#about-me, #project-list, #contact-info {
     display: none;
     color: white;
     letter-spacing: normal;
@@ -162,11 +162,11 @@ body {
     margin-top: .5rem;
 }
 
-#about-me.hidden, #project-list.hidden {
+#about-me.hidden, #project-list.hidden, #contact-info.hidden {
     display: none;
 }
 
-#about-me.visible, #project-list.visible {
+#about-me.visible, #project-list.visible, #contact-info.visible {
     display: block;
     opacity: 1;
     transform: translateX(0);
