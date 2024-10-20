@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Notable&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2c38b20589.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>My Portfolio</title>
+  </head>
+  <body>
+    <section class="bio">
+      <h1 class="glow-text upper">Sam Lemon</h1>
+      <div class="underline"></div>
+      <h3 class="glow-text">Web Developer</h3>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/samlemon/" target="_blank">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/Sam-Lemon" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+
+      <div class="about-me">
+        <p>
+          As a former live entertainment pro turned web developer, I'm merging
+          the magic of the stage with the thrill of code to craft immersive,
+          dynamic web experiences that dazzle and inspire.
+        </p>
+      </div>
+
+      <div class="contact">
+        <div class="contact-border">
+          <h4 class="glow-text">Contact Me</h4>
+          <form>
+            <div>
+              <label for="first-name">First Name:</label>
+              <input type="text" id="first-name" name="first-name" required />
+            </div>
+            <div>
+              <label for="last-name">Last Name:</label>
+              <input type="text" id="last-name" name="last-name" required />
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+              <label for="message">Message:</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="4"
+                required=""
+              ></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+          </form>
+          <div id="status"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-list">
+      <div class="headshot">
+        <img
+          src="./images/me-croppedsquare-modified.jpg"
+          alt="Sam's head shot"
+        />
+      </div>
+      <div class="project">
+        <h2 class="glow-text">Projects</h2>
+
+        <div class="indv-project">
+          <div class="outer-border">
+            <div class="container">
+              <h4>Cacti Crafted Website</h4>
+              <div class="icons">
+                <p>
+                  <i class="fa-brands fa-html5"></i>
+                  <i class="fa-brands fa-css3"></i>
+                  <i class="fa-brands fa-js"></i>
+                  <i class="fa-brands fa-react"></i>
+                </p>
+              </div>
+              <div class="content">
+                <div class="project-details">
+                  <div>
+                    <h5>Tech Stack</h5>
+                    <ul>
+                      <li>React Router</li>
+                      <li>React Bootstrap</li>
+                      <li>RESTful API</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5>Components</h5>
+                    <ul>
+                      <li>Home Page</li>
+                      <li>Login Page</li>
+                      <li>Cart</li>
+                    </ul>
+                  </div>
+                </div>
+                <figure>
+                  <img
+                    class="project-img"
+                    src="./images/CactiCraftedWebsiteFrontPage.png"
+                  />
+                  <figcaption>
+                    <a href="https://github.com/Sam-Lemon/CactiCrafted-Website"
+                      >GitHub Repository</a
+                    >
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project">
+          <div class="outer-border">
+            <div class="container">
+              <h4>PROJECT NAME</h4>
+              <div class="content">
+                <div>
+                  <h5>Tech Stack</h5>
+                  <ul>
+                    <li>TECH</li>
+                    <li>TECH</li>
+                    <li>TECH</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Project Components</h5>
+                  <ul>
+                    <li>COMPONENT</li>
+                    <li>COMPONENT</li>
+                    <li>COMPONENT</li>
+                  </ul>
+                </div>
+                <figure>
+                  <img src="" alt="" />
+                  <figcaption>
+                    <a href="">GITHUB REPOSITORY</a>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project">
+        <div class="outer-border">
+          <div class="container">
+            <h4>PROJECT NAME</h4>
+            <div class="content">
+              <div>
+                <h5>Tech Stack</h5>
+                <ul>
+                  <li>TECH</li>
+                  <li>TECH</li>
+                  <li>TECH</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Project Components</h5>
+                <ul>
+                  <li>COMPONENT</li>
+                  <li>COMPONENT</li>
+                  <li>COMPONENT</li>
+                </ul>
+              </div>
+              <figure>
+                <img src="" alt="" />
+                <figcaption>
+                  <a href="">GITHUB REPOSITORY</a>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.emailjs.com/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("YOUR_USER_ID");
+      })();
+    </script>
+    <script src="./script.js"></script>
+  </body>
+</html>
+
+<!-- Former live entertainment professional turned web developer, I'm excited
+        to bring my creative perspective to the digital world. Join me as I 
+        merge technical skills with artistic passion to craft engaging,
+        dynamic web experiences. -->
