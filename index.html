@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Notable&family=Handjet:wght@100..900&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Notable&family=Handjet:wght@100..900&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Goldman:wght@400;700&family=Slabo+27px&family=Space+Grotesk:wght@300..700&family=Zen+Dots&display=swap"
       rel="stylesheet"
     />
 
@@ -19,179 +19,180 @@
 
     <title>Portfolio -- Sam Lemon</title>
   </head>
-  <body>
-    <section class="biography">
-      <div class="bio">
-        <h1 class="glow-text upper">Sam Lemon</h1>
-        <div class="underline"></div>
-        <h3 class="glow-text">Web Developer</h3>
+  <body class="space-grotesk">
+    <div class="wrapper">
+      <section class="biography">
+        <div class="bio">
+          <h1 class="glow-text upper notable-regular">Sam Lemon</h1>
+          <div class="underline"></div>
+          <h3 class="glow-text handjet-regular">Web Developer</h3>
 
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/samlemon/" target="_blank">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/Sam-Lemon" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/samlemon/" target="_blank">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/Sam-Lemon" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+
+          <div class="about-me">
+            <p>
+              As a former live entertainment pro turned web developer, I'm
+              merging the magic of the stage with the thrill of code to craft
+              immersive, dynamic web experiences that dazzle and inspire.
+            </p>
+          </div>
         </div>
 
-        <div class="about-me">
-          <p>
-            As a former live entertainment pro turned web developer, I'm merging
-            the magic of the stage with the thrill of code to craft immersive,
-            dynamic web experiences that dazzle and inspire.
-          </p>
+        <div class="headshot">
+          <img
+            src="./images/me-croppedsquare-modified.jpg"
+            alt="Sam's head shot"
+          />
         </div>
-      </div>
+      </section>
 
-      <div class="headshot">
-        <img
-          src="./images/me-croppedsquare-modified.jpg"
-          alt="Sam's head shot"
-        />
-      </div>
-    </section>
+      <div class="container">
+        <section class="contact-me">
+          <div class="contact-border">
+            <h4 class="glow-text notable-regular">Contact Me</h4>
+            <form action="" method="" class="contact-form">
+              <label for="first-name">First Name:</label>
+              <input type="text" id="first-name" name="first-name" required />
 
-    <section>
-      <div class="contact">
-        <div class="contact-border">
-          <h4 class="glow-text">Contact Me</h4>
-          <form action="" method="" class="contact-form">
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" required />
+              <label for="last-name">Last Name:</label>
+              <input type="text" id="last-name" name="last-name" required />
 
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name" required />
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+              <label for="message">Message:</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="4"
+                required=""
+              ></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+            <div id="status"></div>
+          </div>
+        </section>
 
-            <label for="message">Message:</label>
-            <textarea
-              name="message"
-              id="message"
-              rows="4"
-              required=""
-            ></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-          <div id="status"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-list">
-      <div class="project">
-        <h2 class="glow-text">Projects</h2>
-
-        <div class="indv-project">
-          <div class="outer-border">
-            <div class="container">
-              <h4>Cacti Crafted Website</h4>
-              <div class="icons">
-                <p>
-                  <i class="fa-brands fa-html5"></i>
-                  <i class="fa-brands fa-css3"></i>
-                  <i class="fa-brands fa-js"></i>
-                  <i class="fa-brands fa-react"></i>
-                </p>
-              </div>
-              <div class="content">
-                <div class="project-details">
-                  <div>
-                    <h5>Tech Stack</h5>
-                    <ul>
-                      <li>React Router</li>
-                      <li>React Bootstrap</li>
-                      <li>RESTful API</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5>Components</h5>
-                    <ul>
-                      <li>Home Page</li>
-                      <li>Login Page</li>
-                      <li>Cart</li>
-                    </ul>
-                  </div>
+        <section class="project-list">
+          <h2 class="glow-text notable-regular">Projects</h2>
+          <div class="indv-project">
+            <div class="outer-border">
+              <div class="project-container">
+                <h4 class="handjet-regular">Cacti Crafted Website</h4>
+                <div class="icons">
+                  <p>
+                    <i class="fa-brands fa-html5"></i>
+                    <i class="fa-brands fa-css3"></i>
+                    <i class="fa-brands fa-js"></i>
+                    <i class="fa-brands fa-react"></i>
+                  </p>
                 </div>
-                <figure>
-                  <img
-                    class="project-img"
-                    src="./images/CactiCraftedWebsiteFrontPage.png"
-                    alt="CactiCrafted website front page"
-                  />
-                  <figcaption>
-                    <a href="https://github.com/Sam-Lemon/CactiCrafted-Website"
-                      >GitHub Repository</a
-                    >
-                  </figcaption>
-                </figure>
+                <div class="content">
+                  <div>
+                    <div class="tech-stack">
+                      <h5 class="handjet-regular">Tech Stack</h5>
+                      <ul>
+                        <li>- React Router</li>
+                        <li>- React Bootstrap</li>
+                        <li>- RESTful API</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 class="handjet-regular">Components</h5>
+                      <ul>
+                        <li>- Home Page</li>
+                        <li>- Login Page</li>
+                        <li>- Cart</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <figure>
+                    <img
+                      class="project-img"
+                      src="./images/CactiCraftedWebsiteFrontPage.png"
+                      alt="CactiCrafted website front page"
+                    />
+                    <figcaption>
+                      <a
+                        href="https://github.com/Sam-Lemon/CactiCrafted-Website"
+                        >GitHub Repository</a
+                      >
+                    </figcaption>
+                  </figure>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="indv-project">
-          <div class="outer-border">
-            <div class="container">
-              <h4>Tic-Tac-UFO</h4>
-              <div class="icons">
-                <p>
-                  <i class="fa-brands fa-html5"></i>
-                  <i class="fa-brands fa-css3"></i>
-                  <i class="fa-brands fa-js"></i>
-                </p>
-              </div>
-              <div class="content">
-                <div class="project-details">
-                  <div>
-                    <h5>Tech Stack</h5>
-                    <ul>
-                      <li>DOM Manipulation</li>
-                      <li>Event Handling</li>
-                      <li>Timers</li>
-                      <li>Minimax Algorithm</li>
-                      <li>Heuristic Evaluation</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5>Project Components</h5>
-                    <ul>
-                      <li>Change player names</li>
-                      <li>PvP Mode</li>
-                      <li>PvC - Easy Mode</li>
-                      <li>PvC - Hard Mode</li>
-                    </ul>
-                  </div>
+          <div class="indv-project">
+            <div class="outer-border">
+              <div class="project-container">
+                <h4 class="handjet-regular">Tic-Tac-UFO</h4>
+                <div class="icons">
+                  <p>
+                    <i class="fa-brands fa-html5"></i>
+                    <i class="fa-brands fa-css3"></i>
+                    <i class="fa-brands fa-js"></i>
+                  </p>
                 </div>
+                <div class="content">
+                  <div>
+                    <div>
+                      <h5 class="handjet-regular">Tech Stack</h5>
+                      <ul>
+                        <li>- DOM Manipulation</li>
+                        <li>- Event Handling</li>
+                        <li>- Timers</li>
+                        <li>- Minimax Algorithm</li>
+                        <li>- Heuristic Evaluation</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 class="handjet-regular">Project Components</h5>
+                      <ul>
+                        <li>- Change player names</li>
+                        <li>- PvP Mode</li>
+                        <li>- PvC - Easy Mode</li>
+                        <li>- PvC - Hard Mode</li>
+                      </ul>
+                    </div>
+                  </div>
 
-                <figure>
-                  <img
-                    src="./images/GamePlayTicTacUFO.png"
-                    alt="Game play for Tic-Tac-UFO game"
-                  />
-                  <figcaption>
-                    <a href="https://github.com/Sam-Lemon/Tic-Tac-Toe"
-                      >GitHub Repository</a
-                    >
-                  </figcaption>
-                </figure>
+                  <figure>
+                    <img
+                      class="project-img"
+                      src="./images/GamePlayTicTacUFO.png"
+                      alt="Game play for Tic-Tac-UFO game"
+                    />
+                    <figcaption>
+                      <a href="https://github.com/Sam-Lemon/Tic-Tac-Toe"
+                        >GitHub Repository</a
+                      >
+                    </figcaption>
+                  </figure>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
 
-    <script
-      type="text/javascript"
-      src="https://cdn.emailjs.com/dist/email.min.js"
-    ></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init("YOUR_USER_ID");
-      })();
-    </script>
-    <script src="./script.js"></script>
+      <script
+        type="text/javascript"
+        src="https://cdn.emailjs.com/dist/email.min.js"
+      ></script>
+      <script type="text/javascript">
+        (function () {
+          emailjs.init("YOUR_USER_ID");
+        })();
+      </script>
+      <script src="./script.js"></script>
+    </div>
   </body>
 </html>
